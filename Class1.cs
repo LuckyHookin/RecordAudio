@@ -15,7 +15,7 @@ namespace RecordAudio
             var outputFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wave");
             if (path != null)
             {
-                outputFolder = Path.Combine(path, "wave");
+                outputFolder = path;
             }
             if (maxTimeSecond == 0)
             {
@@ -24,7 +24,7 @@ namespace RecordAudio
             //test
             Console.Out.WriteLine(outputFolder);
             Directory.CreateDirectory(outputFolder);
-            var fileName = DateTime.Now.ToString("yyyy-MM-dd HH_mm_ss") + "Record.wav";
+            var fileName = DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss") + "-Record.wav";
             var outputFilePath = Path.Combine(outputFolder, fileName);
             capture = new WasapiLoopbackCapture();
             var writer = new WaveFileWriter(outputFilePath, capture.WaveFormat);
